@@ -6,7 +6,7 @@ threadsafe: true
 
 handlers:
 - url: /.*
-  script: wifi2go.application
+  script: service.application
 
 libraries:
 - name: webapp2
