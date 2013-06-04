@@ -1,0 +1,289 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3938BFC0175E642800F46EBA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3938BFBF175E642800F46EBA /* UIKit.framework */; };
+		3938BFC2175E642800F46EBA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3938BFC1175E642800F46EBA /* Foundation.framework */; };
+		3938BFC4175E642800F46EBA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3938BFC3175E642800F46EBA /* CoreGraphics.framework */; };
+		3938BFCA175E642800F46EBA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3938BFC8175E642800F46EBA /* InfoPlist.strings */; };
+		3938BFCC175E642800F46EBA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3938BFCB175E642800F46EBA /* main.m */; };
+		3938BFD0175E642800F46EBA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3938BFCF175E642800F46EBA /* AppDelegate.m */; };
+		3938BFD2175E642800F46EBA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3938BFD1175E642800F46EBA /* Default.png */; };
+		3938BFD4175E642800F46EBA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3938BFD3175E642800F46EBA /* Default@2x.png */; };
+		3938BFD6175E642800F46EBA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3938BFD5175E642800F46EBA /* Default-568h@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3938BFBC175E642800F46EBA /* WiFi2Go-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WiFi2Go-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3938BFBF175E642800F46EBA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3938BFC1175E642800F46EBA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3938BFC3175E642800F46EBA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3938BFC7175E642800F46EBA /* WiFi2Go-ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WiFi2Go-ios-Info.plist"; sourceTree = "<group>"; };
+		3938BFC9175E642800F46EBA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3938BFCB175E642800F46EBA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3938BFCD175E642800F46EBA /* WiFi2Go-ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WiFi2Go-ios-Prefix.pch"; sourceTree = "<group>"; };
+		3938BFCE175E642800F46EBA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3938BFCF175E642800F46EBA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3938BFD1175E642800F46EBA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		3938BFD3175E642800F46EBA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		3938BFD5175E642800F46EBA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3938BFB9175E642800F46EBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3938BFC0175E642800F46EBA /* UIKit.framework in Frameworks */,
+				3938BFC2175E642800F46EBA /* Foundation.framework in Frameworks */,
+				3938BFC4175E642800F46EBA /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3938BFB3175E642800F46EBA = {
+			isa = PBXGroup;
+			children = (
+				3938BFC5175E642800F46EBA /* WiFi2Go-ios */,
+				3938BFBE175E642800F46EBA /* Frameworks */,
+				3938BFBD175E642800F46EBA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3938BFBD175E642800F46EBA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3938BFBC175E642800F46EBA /* WiFi2Go-ios.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3938BFBE175E642800F46EBA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3938BFBF175E642800F46EBA /* UIKit.framework */,
+				3938BFC1175E642800F46EBA /* Foundation.framework */,
+				3938BFC3175E642800F46EBA /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3938BFC5175E642800F46EBA /* WiFi2Go-ios */ = {
+			isa = PBXGroup;
+			children = (
+				3938BFCE175E642800F46EBA /* AppDelegate.h */,
+				3938BFCF175E642800F46EBA /* AppDelegate.m */,
+				3938BFC6175E642800F46EBA /* Supporting Files */,
+			);
+			path = "WiFi2Go-ios";
+			sourceTree = "<group>";
+		};
+		3938BFC6175E642800F46EBA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3938BFC7175E642800F46EBA /* WiFi2Go-ios-Info.plist */,
+				3938BFC8175E642800F46EBA /* InfoPlist.strings */,
+				3938BFCB175E642800F46EBA /* main.m */,
+				3938BFCD175E642800F46EBA /* WiFi2Go-ios-Prefix.pch */,
+				3938BFD1175E642800F46EBA /* Default.png */,
+				3938BFD3175E642800F46EBA /* Default@2x.png */,
+				3938BFD5175E642800F46EBA /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3938BFBB175E642800F46EBA /* WiFi2Go-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3938BFD9175E642800F46EBA /* Build configuration list for PBXNativeTarget "WiFi2Go-ios" */;
+			buildPhases = (
+				3938BFB8175E642800F46EBA /* Sources */,
+				3938BFB9175E642800F46EBA /* Frameworks */,
+				3938BFBA175E642800F46EBA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WiFi2Go-ios";
+			productName = "WiFi2Go-ios";
+			productReference = 3938BFBC175E642800F46EBA /* WiFi2Go-ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3938BFB4175E642800F46EBA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Nicolas Ameghino";
+			};
+			buildConfigurationList = 3938BFB7175E642800F46EBA /* Build configuration list for PBXProject "WiFi2Go-ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3938BFB3175E642800F46EBA;
+			productRefGroup = 3938BFBD175E642800F46EBA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3938BFBB175E642800F46EBA /* WiFi2Go-ios */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3938BFBA175E642800F46EBA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3938BFCA175E642800F46EBA /* InfoPlist.strings in Resources */,
+				3938BFD2175E642800F46EBA /* Default.png in Resources */,
+				3938BFD4175E642800F46EBA /* Default@2x.png in Resources */,
+				3938BFD6175E642800F46EBA /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3938BFB8175E642800F46EBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3938BFCC175E642800F46EBA /* main.m in Sources */,
+				3938BFD0175E642800F46EBA /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3938BFC8175E642800F46EBA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3938BFC9175E642800F46EBA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3938BFD7175E642800F46EBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3938BFD8175E642800F46EBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3938BFDA175E642800F46EBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WiFi2Go-ios/WiFi2Go-ios-Prefix.pch";
+				INFOPLIST_FILE = "WiFi2Go-ios/WiFi2Go-ios-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3938BFDB175E642800F46EBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WiFi2Go-ios/WiFi2Go-ios-Prefix.pch";
+				INFOPLIST_FILE = "WiFi2Go-ios/WiFi2Go-ios-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3938BFB7175E642800F46EBA /* Build configuration list for PBXProject "WiFi2Go-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3938BFD7175E642800F46EBA /* Debug */,
+				3938BFD8175E642800F46EBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3938BFD9175E642800F46EBA /* Build configuration list for PBXNativeTarget "WiFi2Go-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3938BFDA175E642800F46EBA /* Debug */,
+				3938BFDB175E642800F46EBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3938BFB4175E642800F46EBA /* Project object */;
+}
