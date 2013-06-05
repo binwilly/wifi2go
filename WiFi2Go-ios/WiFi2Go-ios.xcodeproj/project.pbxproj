@@ -1,289 +1,778 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		3938BFC0175E642800F46EBA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3938BFBF175E642800F46EBA /* UIKit.framework */; };
-		3938BFC2175E642800F46EBA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3938BFC1175E642800F46EBA /* Foundation.framework */; };
-		3938BFC4175E642800F46EBA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3938BFC3175E642800F46EBA /* CoreGraphics.framework */; };
-		3938BFCA175E642800F46EBA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3938BFC8175E642800F46EBA /* InfoPlist.strings */; };
-		3938BFCC175E642800F46EBA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3938BFCB175E642800F46EBA /* main.m */; };
-		3938BFD0175E642800F46EBA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3938BFCF175E642800F46EBA /* AppDelegate.m */; };
-		3938BFD2175E642800F46EBA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3938BFD1175E642800F46EBA /* Default.png */; };
-		3938BFD4175E642800F46EBA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3938BFD3175E642800F46EBA /* Default@2x.png */; };
-		3938BFD6175E642800F46EBA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3938BFD5175E642800F46EBA /* Default-568h@2x.png */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXFileReference section */
-		3938BFBC175E642800F46EBA /* WiFi2Go-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WiFi2Go-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3938BFBF175E642800F46EBA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		3938BFC1175E642800F46EBA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		3938BFC3175E642800F46EBA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		3938BFC7175E642800F46EBA /* WiFi2Go-ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WiFi2Go-ios-Info.plist"; sourceTree = "<group>"; };
-		3938BFC9175E642800F46EBA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3938BFCB175E642800F46EBA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3938BFCD175E642800F46EBA /* WiFi2Go-ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WiFi2Go-ios-Prefix.pch"; sourceTree = "<group>"; };
-		3938BFCE175E642800F46EBA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		3938BFCF175E642800F46EBA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3938BFD1175E642800F46EBA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		3938BFD3175E642800F46EBA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		3938BFD5175E642800F46EBA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		3938BFB9175E642800F46EBA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3938BFC0175E642800F46EBA /* UIKit.framework in Frameworks */,
-				3938BFC2175E642800F46EBA /* Foundation.framework in Frameworks */,
-				3938BFC4175E642800F46EBA /* CoreGraphics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		3938BFB3175E642800F46EBA = {
-			isa = PBXGroup;
-			children = (
-				3938BFC5175E642800F46EBA /* WiFi2Go-ios */,
-				3938BFBE175E642800F46EBA /* Frameworks */,
-				3938BFBD175E642800F46EBA /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		3938BFBD175E642800F46EBA /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3938BFBC175E642800F46EBA /* WiFi2Go-ios.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		3938BFBE175E642800F46EBA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3938BFBF175E642800F46EBA /* UIKit.framework */,
-				3938BFC1175E642800F46EBA /* Foundation.framework */,
-				3938BFC3175E642800F46EBA /* CoreGraphics.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3938BFC5175E642800F46EBA /* WiFi2Go-ios */ = {
-			isa = PBXGroup;
-			children = (
-				3938BFCE175E642800F46EBA /* AppDelegate.h */,
-				3938BFCF175E642800F46EBA /* AppDelegate.m */,
-				3938BFC6175E642800F46EBA /* Supporting Files */,
-			);
-			path = "WiFi2Go-ios";
-			sourceTree = "<group>";
-		};
-		3938BFC6175E642800F46EBA /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3938BFC7175E642800F46EBA /* WiFi2Go-ios-Info.plist */,
-				3938BFC8175E642800F46EBA /* InfoPlist.strings */,
-				3938BFCB175E642800F46EBA /* main.m */,
-				3938BFCD175E642800F46EBA /* WiFi2Go-ios-Prefix.pch */,
-				3938BFD1175E642800F46EBA /* Default.png */,
-				3938BFD3175E642800F46EBA /* Default@2x.png */,
-				3938BFD5175E642800F46EBA /* Default-568h@2x.png */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		3938BFBB175E642800F46EBA /* WiFi2Go-ios */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3938BFD9175E642800F46EBA /* Build configuration list for PBXNativeTarget "WiFi2Go-ios" */;
-			buildPhases = (
-				3938BFB8175E642800F46EBA /* Sources */,
-				3938BFB9175E642800F46EBA /* Frameworks */,
-				3938BFBA175E642800F46EBA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "WiFi2Go-ios";
-			productName = "WiFi2Go-ios";
-			productReference = 3938BFBC175E642800F46EBA /* WiFi2Go-ios.app */;
-			productType = "com.apple.product-type.application";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		3938BFB4175E642800F46EBA /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastUpgradeCheck = 0460;
-				ORGANIZATIONNAME = "Nicolas Ameghino";
-			};
-			buildConfigurationList = 3938BFB7175E642800F46EBA /* Build configuration list for PBXProject "WiFi2Go-ios" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = 3938BFB3175E642800F46EBA;
-			productRefGroup = 3938BFBD175E642800F46EBA /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				3938BFBB175E642800F46EBA /* WiFi2Go-ios */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		3938BFBA175E642800F46EBA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3938BFCA175E642800F46EBA /* InfoPlist.strings in Resources */,
-				3938BFD2175E642800F46EBA /* Default.png in Resources */,
-				3938BFD4175E642800F46EBA /* Default@2x.png in Resources */,
-				3938BFD6175E642800F46EBA /* Default-568h@2x.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		3938BFB8175E642800F46EBA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3938BFCC175E642800F46EBA /* main.m in Sources */,
-				3938BFD0175E642800F46EBA /* AppDelegate.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		3938BFC8175E642800F46EBA /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3938BFC9175E642800F46EBA /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		3938BFD7175E642800F46EBA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		3938BFD8175E642800F46EBA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		3938BFDA175E642800F46EBA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WiFi2Go-ios/WiFi2Go-ios-Prefix.pch";
-				INFOPLIST_FILE = "WiFi2Go-ios/WiFi2Go-ios-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		3938BFDB175E642800F46EBA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WiFi2Go-ios/WiFi2Go-ios-Prefix.pch";
-				INFOPLIST_FILE = "WiFi2Go-ios/WiFi2Go-ios-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		3938BFB7175E642800F46EBA /* Build configuration list for PBXProject "WiFi2Go-ios" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3938BFD7175E642800F46EBA /* Debug */,
-				3938BFD8175E642800F46EBA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3938BFD9175E642800F46EBA /* Build configuration list for PBXNativeTarget "WiFi2Go-ios" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3938BFDA175E642800F46EBA /* Debug */,
-				3938BFDB175E642800F46EBA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 3938BFB4175E642800F46EBA /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>3938BFB3175E642800F46EBA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3938BFC5175E642800F46EBA</string>
+				<string>3938BFBE175E642800F46EBA</string>
+				<string>3938BFBD175E642800F46EBA</string>
+				<string>822B647B4AF04CB4BFECC60B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3938BFB4175E642800F46EBA</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastUpgradeCheck</key>
+				<string>0460</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>Nicolas Ameghino</string>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>3938BFB7175E642800F46EBA</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>3938BFB3175E642800F46EBA</string>
+			<key>productRefGroup</key>
+			<string>3938BFBD175E642800F46EBA</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>3938BFBB175E642800F46EBA</string>
+			</array>
+		</dict>
+		<key>3938BFB7175E642800F46EBA</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>3938BFD7175E642800F46EBA</string>
+				<string>3938BFD8175E642800F46EBA</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>3938BFB8175E642800F46EBA</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>3938BFCC175E642800F46EBA</string>
+				<string>3938BFD0175E642800F46EBA</string>
+				<string>3938BFDE175E6B5A00F46EBA</string>
+				<string>3938BFE1175E70FB00F46EBA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>3938BFB9175E642800F46EBA</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>3938BFC0175E642800F46EBA</string>
+				<string>3938BFC2175E642800F46EBA</string>
+				<string>3938BFC4175E642800F46EBA</string>
+				<string>3D3EF678FA0F4D60A41F6EDE</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>3938BFBA175E642800F46EBA</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>3938BFCA175E642800F46EBA</string>
+				<string>3938BFD2175E642800F46EBA</string>
+				<string>3938BFD4175E642800F46EBA</string>
+				<string>3938BFD6175E642800F46EBA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>3938BFBB175E642800F46EBA</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>3938BFD9175E642800F46EBA</string>
+			<key>buildPhases</key>
+			<array>
+				<string>5878C539F2024E7BA62E4376</string>
+				<string>3938BFB8175E642800F46EBA</string>
+				<string>3938BFB9175E642800F46EBA</string>
+				<string>3938BFBA175E642800F46EBA</string>
+				<string>D3F4A15E7670470CB9A2BF7B</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>WiFi2Go-ios</string>
+			<key>productName</key>
+			<string>WiFi2Go-ios</string>
+			<key>productReference</key>
+			<string>3938BFBC175E642800F46EBA</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>3938BFBC175E642800F46EBA</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>WiFi2Go-ios.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>3938BFBD175E642800F46EBA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3938BFBC175E642800F46EBA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3938BFBE175E642800F46EBA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3938BFBF175E642800F46EBA</string>
+				<string>3938BFC1175E642800F46EBA</string>
+				<string>3938BFC3175E642800F46EBA</string>
+				<string>3CE37789F61940C7A17729E1</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3938BFBF175E642800F46EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>UIKit.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/UIKit.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>3938BFC0175E642800F46EBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3938BFBF175E642800F46EBA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3938BFC1175E642800F46EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>3938BFC2175E642800F46EBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3938BFC1175E642800F46EBA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3938BFC3175E642800F46EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>CoreGraphics.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/CoreGraphics.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>3938BFC4175E642800F46EBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3938BFC3175E642800F46EBA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3938BFC5175E642800F46EBA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3938BFCE175E642800F46EBA</string>
+				<string>3938BFCF175E642800F46EBA</string>
+				<string>3938BFC6175E642800F46EBA</string>
+				<string>3938BFDC175E6B5A00F46EBA</string>
+				<string>3938BFDD175E6B5A00F46EBA</string>
+				<string>3938BFDF175E70FB00F46EBA</string>
+				<string>3938BFE0175E70FB00F46EBA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>WiFi2Go-ios</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3938BFC6175E642800F46EBA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3938BFC7175E642800F46EBA</string>
+				<string>3938BFC8175E642800F46EBA</string>
+				<string>3938BFCB175E642800F46EBA</string>
+				<string>3938BFCD175E642800F46EBA</string>
+				<string>3938BFD1175E642800F46EBA</string>
+				<string>3938BFD3175E642800F46EBA</string>
+				<string>3938BFD5175E642800F46EBA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3938BFC7175E642800F46EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>WiFi2Go-ios-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3938BFC8175E642800F46EBA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3938BFC9175E642800F46EBA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3938BFC9175E642800F46EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3938BFCA175E642800F46EBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3938BFC8175E642800F46EBA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3938BFCB175E642800F46EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>main.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3938BFCC175E642800F46EBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3938BFCB175E642800F46EBA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3938BFCD175E642800F46EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>WiFi2Go-ios-Prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3938BFCE175E642800F46EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>AppDelegate.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3938BFCF175E642800F46EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>AppDelegate.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3938BFD0175E642800F46EBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3938BFCF175E642800F46EBA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3938BFD1175E642800F46EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>Default.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3938BFD2175E642800F46EBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3938BFD1175E642800F46EBA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3938BFD3175E642800F46EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>Default@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3938BFD4175E642800F46EBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3938BFD3175E642800F46EBA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3938BFD5175E642800F46EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>Default-568h@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3938BFD6175E642800F46EBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3938BFD5175E642800F46EBA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3938BFD7175E642800F46EBA</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>6.1</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>3938BFD8175E642800F46EBA</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>6.1</string>
+				<key>OTHER_CFLAGS</key>
+				<string>-DNS_BLOCK_ASSERTIONS=1</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>3938BFD9175E642800F46EBA</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>3938BFDA175E642800F46EBA</string>
+				<string>3938BFDB175E642800F46EBA</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>3938BFDA175E642800F46EBA</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>822B647B4AF04CB4BFECC60B</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>WiFi2Go-ios/WiFi2Go-ios-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>WiFi2Go-ios/WiFi2Go-ios-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>app</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>3938BFDB175E642800F46EBA</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>822B647B4AF04CB4BFECC60B</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>WiFi2Go-ios/WiFi2Go-ios-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>WiFi2Go-ios/WiFi2Go-ios-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>app</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>3938BFDC175E6B5A00F46EBA</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>WiFi2GoService.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3938BFDD175E6B5A00F46EBA</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>WiFi2GoService.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3938BFDE175E6B5A00F46EBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3938BFDD175E6B5A00F46EBA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3938BFDF175E70FB00F46EBA</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>TestRootViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3938BFE0175E70FB00F46EBA</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>TestRootViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3938BFE1175E70FB00F46EBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3938BFE0175E70FB00F46EBA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3CE37789F61940C7A17729E1</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libPods.a</string>
+			<key>path</key>
+			<string>libPods.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>3D3EF678FA0F4D60A41F6EDE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3CE37789F61940C7A17729E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict/>
+		</dict>
+		<key>5878C539F2024E7BA62E4376</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>1</string>
+		</dict>
+		<key>822B647B4AF04CB4BFECC60B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Pods.xcconfig</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>D3F4A15E7670470CB9A2BF7B</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Pods-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>1</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>3938BFB4175E642800F46EBA</string>
+</dict>
+</plist>
