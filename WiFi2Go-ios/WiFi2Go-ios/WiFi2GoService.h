@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AFNetworking/AFNetworking.h>
 
 typedef void(^WiFi2GoServiceWiFiQueryComplete)(NSArray *results, NSError *error);
 
-@interface WiFi2GoService : NSObject
+@interface WiFi2GoService : AFHTTPClient
 
 -(void) queryWiFiForLatitude:(double)latitude
                    longitude:(double)longitude
