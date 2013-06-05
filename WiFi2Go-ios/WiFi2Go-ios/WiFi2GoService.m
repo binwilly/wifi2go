@@ -13,8 +13,8 @@
 static NSString *urlString;
 
 +(void)load {
-    //urlString = @"http://localhost:8080/api/1/wifi";
-    urlString = @"http://localhost:8080/";
+    urlString = @"http://localhost:8080/api/1/wifi";
+    //urlString = @"http://localhost:8080/";
 }
 
 -(void)queryWiFiForLatitude:(double)latitude
@@ -33,7 +33,7 @@ static NSString *urlString;
                                                                    code:[(id)urlResponse statusCode]
                                                                userInfo:nil];
                                    }
-                                   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                                   dispatch_async(dispatch_get_main_queue(), ^{
                                        block(nil, error);
                                    });
                                    return;
@@ -42,12 +42,12 @@ static NSString *urlString;
                                                                       options:0
                                                                         error:&error];
                                if (error != nil) {
-                                   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                                   dispatch_async(dispatch_get_main_queue(), ^{
                                        block(nil, error);
                                    });
                                }
                                
-                               dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                               dispatch_async(dispatch_get_main_queue(), ^{
                                    block(r, nil);
                                });
                            }];
