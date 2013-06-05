@@ -7,9 +7,16 @@ import json
 
 class Wifi(ndb.Model):
 
+    location = ndb.StringProperty(indexed=True)
     ssid = ndb.StringProperty(indexed=True)
+    deprecate = ndb.BooleanProperty(default=False)
     password = ndb.StringProperty()
     date_added = ndb.DateTimeProperty(auto_now_add=True)
+
+class Password(ndb.Model):
+    password = ndb.StringProperty()
+    date_added = ndb.DateTimeProperty(auto_now_add=True)
+    date_last_update = ndb.DateTimeProperty(auto_now=True)
 
 
 class AccessPointsRequest(webapp2.RequestHandler):
@@ -40,31 +47,40 @@ class AccessPointsRequest(webapp2.RequestHandler):
 
 
     def findNearLocations(self, latitude, longitude):
-        locations = [(999, 991)]
-
+        ''' @TODO implement foursquare '''
+        locations = ['adkn', 'vj']
         return locations
 
     def findWifiByLocations(self, locations):
+        ''' @TODO Ensure location data type '''
 
-        wifi_results = [{
-            'name': 'Test Wi-Fi',
-            'password': 1234,
-            'location_id': 999
-        },
-        {
-            'name': 'Wi-Fi La Nona',
-            'password': 334,
-            'location_id': 991
-        }]
+        query_result = Wifi.query(Wifi.location.IN(locations)).fetch()
+        return [wifi.to_dict(exclude=['date_added']) for wifi in query_result]
 
-        return wifi_results
+
+    @staticmethod
+    def getLastestWifi(self, number=5):
+
+        wifis = Wifi.query().fetch(number)
+        return wifis
 
 
 class AccessPointAdd(webapp2.RequestHandler):
 
-    ''' post param latitude and longitude'''
+    ''' @TODO add wifi via post'''
     def post(self):
         return None
+
+    #return Boolean
+    def addWifi(self, location, ssid, password):
+        ''' @TODO check id location in foursquare '''
+        wifi = Wifi()
+        wifi.location = location
+        wifi.ssid = ssid
+        wifi.password = password
+        return wifi.put()
+
+
 
 application = webapp2.WSGIApplication([
     ('/api/1/wifi', AccessPointsRequest),
