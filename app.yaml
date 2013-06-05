@@ -5,8 +5,10 @@ api_version: 1
 threadsafe: true
 
 handlers:
-- url: /.*
+- url: /api/.*
   script: service.application
+- url: /*
+  script: wifi2go.application
 
 libraries:
 - name: webapp2
