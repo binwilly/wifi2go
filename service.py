@@ -18,6 +18,13 @@ class Password(ndb.Model):
     date_added = ndb.DateTimeProperty(auto_now_add=True)
     date_last_update = ndb.DateTimeProperty(auto_now=True)
 
+def wrap_response(response, error=None):
+    d = {
+        'error': False if error is None else True,
+        'error_message': "" if error is None else error,
+        'response': response
+    }
+    return d
 
 class AccessPointsRequest(webapp2.RequestHandler):
 
@@ -26,8 +33,9 @@ class AccessPointsRequest(webapp2.RequestHandler):
         ll_split = ll_param.split(',')
 
         if len(ll_split) != 2:
-            self.response.write('Error: latitude or longitude param missing')
+            self.response.write(json.dumps(wrap_response(None, 'latitude or longitude param missing')))
             return
+
 
         latitude = ll_split[0]
         longitude = ll_split[1]
@@ -36,14 +44,14 @@ class AccessPointsRequest(webapp2.RequestHandler):
         near_wifis = self.findWifiByLocations(near_locations)
 
         if len(near_wifis) == 0:
-            self.response.write('Wifi not found')
+            self.response.write(json.dumps(wrap_response(None, 'no access points found')))
         else:
-            self.response.write(json.dumps(near_wifis))
+            self.response.write(json.dumps(wrap_response(near_wifis)))
 
 
     def findNearLocations(self, latitude, longitude):
         ''' @TODO implement foursquare '''
-        locations = ['a', 'La dorita']
+        locations = ['Parrilla el c', 'La nona']
         return locations
 
     def findWifiByLocations(self, locations):
