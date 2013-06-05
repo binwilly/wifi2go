@@ -22,18 +22,17 @@ class Password(ndb.Model):
 class AccessPointsRequest(webapp2.RequestHandler):
 
     def get(self):
-        pass
-        #ll = self.request.get('ll')
+        ll_param = self.request.get('ll')
+        ll_split = ll_param.split(',')
 
-
-    def post(self):
-        data = json.loads(self.request.body)
-
-        try:
-            near_locations = self.findNearLocations(data['latitude'], data['longitude'])
-        except KeyError, e:
+        if len(ll_split) != 2:
             self.response.write('Error: latitude or longitude param missing')
+            return
 
+        latitude = ll_split[0]
+        longitude = ll_split[1]
+
+        near_locations = self.findNearLocations(latitude, longitude)
         near_wifis = self.findWifiByLocations(near_locations)
 
         if len(near_wifis) == 0:
