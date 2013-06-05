@@ -45,9 +45,9 @@ static NSArray *keys;
                                completionBlock:^(NSArray *results, NSError *error) {
                                    if (error) {
                                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                                       message:@"algo..."
+                                                                                       message:[error localizedDescription]
                                                                                       delegate:nil
-                                                                             cancelButtonTitle:@"ACHU!!!!"
+                                                                             cancelButtonTitle:@"Y bueh..."
                                                                              otherButtonTitles:nil];
                                        [alert show];
                                        return;
