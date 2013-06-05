@@ -22,13 +22,9 @@ class Password(ndb.Model):
 class AccessPointsRequest(webapp2.RequestHandler):
 
     def get(self):
-        d = {
-            'name': 'Test Wi-Fi',
-            'password': '1234',
-            'location_id': 999,
-        }
+        pass
+        #ll = self.request.get('ll')
 
-        self.response.write(json.dumps([d, d, d]))
 
     def post(self):
         data = json.loads(self.request.body)
@@ -48,7 +44,7 @@ class AccessPointsRequest(webapp2.RequestHandler):
 
     def findNearLocations(self, latitude, longitude):
         ''' @TODO implement foursquare '''
-        locations = ['adkn', 'vj']
+        locations = ['a', 'La dorita']
         return locations
 
     def findWifiByLocations(self, locations):
