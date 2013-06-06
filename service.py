@@ -71,27 +71,35 @@ class AccessPointsRequest(webapp2.RequestHandler):
 
 class AccessPointAdd(webapp2.RequestHandler):
 
-    ''' @TODO add wifi via post'''
     def post(self):
+        data = json.loads(self.request.body)
 
+        venue_id = data['venue_id']
+        ssid = data['ssid']
+        password = data['password']
 
-        location = self.request.get('venue_id')
-        ssid = self.request.get('ssid')
-        password = self.request.get('password')
+        result = self.addWifi(venue_id, ssid, password)
 
-        result = self.addwifi(venue_id, ssid, password)
-        self.response.write(json.dumps(wrap_response(result)))
-
+        if result is True:
+            self.response.write(json.dumps(wrap_response(None)))
+        else:
+            self.response.write(json.dumps(wrap_response(None, "couldn't save, Maybe wrong type")))
 
     #return Boolean
     def addWifi(self, venue_id, ssid, password):
         ''' @TODO check id venue_id in foursquare '''
         wifi = Wifi()
-        wifi.venue_id = venue_id
-        wifi.ssid = ssid
-        wifi.password = password
-        return wifi.put()
+        try:
+            wifi.venue_id = venue_id
+            wifi.ssid = ssid
+            wifi.password = password
+            wifi.put()
 
+        except Exception, e:
+            print e
+            return False
+        else:
+            return True
 
 
 application = webapp2.WSGIApplication([
