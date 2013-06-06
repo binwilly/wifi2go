@@ -18,6 +18,12 @@
 #define COCOAPODS_VERSION_MINOR_BlocksKit 8
 #define COCOAPODS_VERSION_PATCH_BlocksKit 2
 
+// QuickDialog
+#define COCOAPODS_POD_AVAILABLE_QuickDialog
+#define COCOAPODS_VERSION_MAJOR_QuickDialog 0
+#define COCOAPODS_VERSION_MINOR_QuickDialog 8
+#define COCOAPODS_VERSION_PATCH_QuickDialog 0
+
 // RaptureXML
 #define COCOAPODS_POD_AVAILABLE_RaptureXML
 #define COCOAPODS_VERSION_MAJOR_RaptureXML 1
