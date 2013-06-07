@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39388A4C1760DE98002CAA74 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 39388A4B1760DE98002CAA74 /* Venue.m */; };
+		39388A5317610794002CAA74 /* signal.png in Resources */ = {isa = PBXBuildFile; fileRef = 39388A5217610794002CAA74 /* signal.png */; };
+		39388A56176108C0002CAA74 /* VenuesListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39388A55176108C0002CAA74 /* VenuesListCell.m */; };
 		3938BFC0175E642800F46EBA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3938BFBF175E642800F46EBA /* UIKit.framework */; };
 		3938BFC2175E642800F46EBA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3938BFC1175E642800F46EBA /* Foundation.framework */; };
 		3938BFC4175E642800F46EBA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3938BFC3175E642800F46EBA /* CoreGraphics.framework */; };
@@ -25,6 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		39388A4A1760DE98002CAA74 /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
+		39388A4B1760DE98002CAA74 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
+		39388A5217610794002CAA74 /* signal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signal.png; sourceTree = "<group>"; };
+		39388A54176108C0002CAA74 /* VenuesListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenuesListCell.h; sourceTree = "<group>"; };
+		39388A55176108C0002CAA74 /* VenuesListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenuesListCell.m; sourceTree = "<group>"; };
 		3938BFBC175E642800F46EBA /* WiFi2Go-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WiFi2Go-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3938BFBF175E642800F46EBA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3938BFC1175E642800F46EBA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -67,6 +75,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39388A5117610788002CAA74 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				39388A5217610794002CAA74 /* signal.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		3938BFB3175E642800F46EBA = {
 			isa = PBXGroup;
 			children = (
@@ -102,13 +118,17 @@
 		3938BFC5175E642800F46EBA /* WiFi2Go-ios */ = {
 			isa = PBXGroup;
 			children = (
+				3938BFC6175E642800F46EBA /* Supporting Files */,
+				39388A54176108C0002CAA74 /* VenuesListCell.h */,
+				39388A55176108C0002CAA74 /* VenuesListCell.m */,
 				3938BFCE175E642800F46EBA /* AppDelegate.h */,
 				3938BFCF175E642800F46EBA /* AppDelegate.m */,
-				3938BFC6175E642800F46EBA /* Supporting Files */,
 				3938BFDC175E6B5A00F46EBA /* WiFi2GoService.h */,
 				3938BFDD175E6B5A00F46EBA /* WiFi2GoService.m */,
 				3938BFDF175E70FB00F46EBA /* TestRootViewController.h */,
 				3938BFE0175E70FB00F46EBA /* TestRootViewController.m */,
+				39388A4A1760DE98002CAA74 /* Venue.h */,
+				39388A4B1760DE98002CAA74 /* Venue.m */,
 			);
 			path = "WiFi2Go-ios";
 			sourceTree = "<group>";
@@ -116,6 +136,7 @@
 		3938BFC6175E642800F46EBA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				39388A5117610788002CAA74 /* images */,
 				3938BFC7175E642800F46EBA /* WiFi2Go-ios-Info.plist */,
 				3938BFC8175E642800F46EBA /* InfoPlist.strings */,
 				3938BFCB175E642800F46EBA /* main.m */,
@@ -184,6 +205,7 @@
 				3938BFD2175E642800F46EBA /* Default.png in Resources */,
 				3938BFD4175E642800F46EBA /* Default@2x.png in Resources */,
 				3938BFD6175E642800F46EBA /* Default-568h@2x.png in Resources */,
+				39388A5317610794002CAA74 /* signal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +251,8 @@
 				3938BFD0175E642800F46EBA /* AppDelegate.m in Sources */,
 				3938BFDE175E6B5A00F46EBA /* WiFi2GoService.m in Sources */,
 				3938BFE1175E70FB00F46EBA /* TestRootViewController.m in Sources */,
+				39388A4C1760DE98002CAA74 /* Venue.m in Sources */,
+				39388A56176108C0002CAA74 /* VenuesListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
