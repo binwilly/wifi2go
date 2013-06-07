@@ -9,7 +9,8 @@
 #import <CoreLocation/CoreLocation.h>
 
 #import "TestRootViewController.h"
-#import "WiFi2GoService.h"
+#import "WiFi2GoServiceProtocol.h"
+#import "WiFi2GoServiceFactory.h"
 #import "Venue.h"
 #import "VenuesListCell.h"
 
@@ -35,8 +36,8 @@ static NSArray *keys;
         self.navigationItem.title = @"Nearby Public Wi-Fi";
         
         self.locateMeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-                                                              target:self
-                                                              action:@selector(loadData:)];
+                                                                            target:self
+                                                                            action:@selector(loadData:)];
         
         self.navigationItem.leftBarButtonItem = self.locateMeButton;
         
@@ -109,21 +110,21 @@ static NSArray *keys;
 
 -(void) test {
     self.locateMeButton.enabled = YES;
-    [[WiFi2GoService new] queryWiFiForLatitude:-34.0
-                                     longitude:-58.0
-                               completionBlock:^(NSArray *results, NSError *error) {
-                                   if (error) {
-                                       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                                       message:[error localizedDescription]
-                                                                                      delegate:nil
-                                                                             cancelButtonTitle:@"Y bueh..."
-                                                                             otherButtonTitles:nil];
-                                       [alert show];
-                                       return;
-                                   }
-                                   self.data = results;
-                                   [self.tableView reloadData];
-                               }];    
+    [[WiFi2GoServiceFactory getService] queryWiFiForLatitude:-34.0
+                                                   longitude:-58.0
+                                             completionBlock:^(NSArray *results, NSError *error) {
+                                                 if (error) {
+                                                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                     message:[error localizedDescription]
+                                                                                                    delegate:nil
+                                                                                           cancelButtonTitle:@"Y bueh..."
+                                                                                           otherButtonTitles:nil];
+                                                     [alert show];
+                                                     return;
+                                                 }
+                                                 self.data = results;
+                                                 [self.tableView reloadData];
+                                             }];
 }
 
 #pragma mark - CLLocationManager delegate
@@ -141,21 +142,21 @@ static NSArray *keys;
     
     [self.locationManager stopUpdatingLocation];
     self.locateMeButton.enabled = YES;
-    [[WiFi2GoService new] queryWiFiForLatitude:self.currentLocation.coordinate.latitude
-                                     longitude:self.currentLocation.coordinate.longitude
-                               completionBlock:^(NSArray *results, NSError *error) {
-                                   if (error) {
-                                       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                                       message:[error localizedDescription]
-                                                                                      delegate:nil
-                                                                             cancelButtonTitle:@"Y bueh..."
-                                                                             otherButtonTitles:nil];
-                                       [alert show];
-                                       return;
-                                   }
-                                   self.data = results;
-                                   [self.tableView reloadData];
-                               }];
+    [[WiFi2GoServiceFactory getService] queryWiFiForLatitude:self.currentLocation.coordinate.latitude
+                                                   longitude:self.currentLocation.coordinate.longitude
+                                             completionBlock:^(NSArray *results, NSError *error) {
+                                                 if (error) {
+                                                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                     message:[error localizedDescription]
+                                                                                                    delegate:nil
+                                                                                           cancelButtonTitle:@"Y bueh..."
+                                                                                           otherButtonTitles:nil];
+                                                     [alert show];
+                                                     return;
+                                                 }
+                                                 self.data = results;
+                                                 [self.tableView reloadData];
+                                             }];
 }
 
 @end
