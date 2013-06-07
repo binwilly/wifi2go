@@ -1,22 +1,8 @@
 from google.appengine.ext import ndb
-
-import cgi
+import models
 import webapp2
 import json
 
-
-class Wifi(ndb.Model):
-
-    venue_id = ndb.StringProperty(indexed=True)
-    ssid = ndb.StringProperty()
-    deprecate = ndb.BooleanProperty(default=False)
-    password = ndb.StringProperty()
-    date_added = ndb.DateTimeProperty(auto_now_add=True)
-
-class Password(ndb.Model):
-    password = ndb.StringProperty()
-    date_added = ndb.DateTimeProperty(auto_now_add=True)
-    date_last_update = ndb.DateTimeProperty(auto_now=True)
 
 def wrap_response(response, error=None):
     d = {
@@ -52,7 +38,7 @@ class AccessPointsRequest(webapp2.RequestHandler):
 
     def findNearLocations(self, latitude, longitude):
         ''' @TODO implement foursquare '''
-        venue_id = ['Parrilla el c', 'La nona']
+        venue_id = ['Parrilla el c', 'Wifi - tu vieja3']
         return venue_id
 
     def findWifiByLocations(self, venues):
@@ -64,42 +50,35 @@ class AccessPointsRequest(webapp2.RequestHandler):
 
     @staticmethod
     def getLastestWifi(self, number=5):
+        wifis = models.Wifi.query().fetch(number)
+        for wifi in wifis:
+            print wifi.ssid
+            for password in models.WifiSecurity.query(ancestor=wifi.key):
+                print password.password
 
-        wifis = Wifi.query().fetch(number)
         return wifis
 
 
 class AccessPointAdd(webapp2.RequestHandler):
 
     def post(self):
+
         data = json.loads(self.request.body)
-
         venue_id = data['venue_id']
-        ssid = data['ssid']
+        venue_name = data['venue_name']
+        latitude = data['latitude']
+        longitude = data['longitude']
         password = data['password']
+        ssid = data['ssid']
 
-        result = self.addWifi(venue_id, ssid, password)
+        wifi_security = models.WifiSecurity()
+        result = wifi_security.addWifi(venue_id, venue_name, latitude, longitude, ssid, password)
 
         if result is True:
             self.response.write(json.dumps(wrap_response(None)))
         else:
             self.response.write(json.dumps(wrap_response(None, "couldn't save, Maybe wrong type")))
 
-    #return Boolean
-    def addWifi(self, venue_id, ssid, password):
-        ''' @TODO check id venue_id in foursquare '''
-        wifi = Wifi()
-        try:
-            wifi.venue_id = venue_id
-            wifi.ssid = ssid
-            wifi.password = password
-            wifi.put()
-
-        except Exception, e:
-            print e
-            return False
-        else:
-            return True
 
 
 application = webapp2.WSGIApplication([
