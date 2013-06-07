@@ -7,6 +7,7 @@
 //
 
 #import "WiFi2GoService.h"
+#import "Venue.h"
 
 @implementation WiFi2GoService
 
@@ -38,7 +39,10 @@ static NSString *urlString;
         if ([JSON[@"error"] boolValue] == YES) {
             error = [NSError errorWithDomain:@"wifi2go.py" code:-1 userInfo:@{NSLocalizedDescriptionKey: JSON[@"error_message"]}];
         } else {
-            r = JSON[@"response"];
+            r = [NSMutableArray array];
+            for (NSDictionary* d in JSON[@"response"]) {
+                [r addObject:[Venue venueWithDictionary:d]];
+            }
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{ block(r, error); });
