@@ -32,7 +32,7 @@
 }
 
 -(BOOL)hasWifi {
-    return [self[@"password"] length] != 0;
+    return self[@"password"] != [NSNull null] && [self[@"password"] length] != 0;
 }
 
 @end
