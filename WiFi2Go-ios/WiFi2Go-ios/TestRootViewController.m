@@ -10,6 +10,8 @@
 
 #import "TestRootViewController.h"
 #import "WiFi2GoService.h"
+#import "Venue.h"
+#import "VenuesListCell.h"
 
 static NSArray *keys;
 
@@ -53,7 +55,8 @@ static NSArray *keys;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView registerClass:NSClassFromString(@"UITableViewCell") forCellReuseIdentifier:@"Cell"];
+    //self.tableView.rowHeight = 50.0f;
+    [self.tableView registerClass:NSClassFromString(@"VenuesListCell") forCellReuseIdentifier:@"Cell"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,29 +71,33 @@ static NSArray *keys;
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [self.data count];
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return [self.data count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    VenuesListCell *cell = (VenuesListCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NSDictionary *d = self.data[indexPath.section];
-    NSString *key = keys[indexPath.row];
-
-    cell.textLabel.text = [NSString stringWithFormat:@"%@: %@", key, d[key]];
+    Venue *v = self.data[indexPath.row];
+    cell.venueNameLabel.text = [NSString stringWithFormat:@"%@", v[@"venue_id"]];
+    cell.detailsLabel.text = @"#superfafafa";
+    
+    if ([v hasWifi]) {
+        cell.venueNameLabel.textColor = [UIColor blackColor];
+        cell.venueSignalImageView.image = [UIImage imageNamed:@"signal.png"];
+    } else {
+        cell.venueNameLabel.textColor = [UIColor lightGrayColor];
+        cell.venueSignalImageView.image = nil;
+    }
+    
+    
     return cell;
 }
-
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [NSString stringWithFormat:@"Wi-Fi %d", section+1];
-}
-
 
 #pragma mark - Table view delegate
 
