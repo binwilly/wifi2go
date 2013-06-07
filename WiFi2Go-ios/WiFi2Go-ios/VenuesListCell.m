@@ -21,16 +21,18 @@
         self.venueNameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         self.venueNameLabel.textColor = [UIColor blackColor];
         self.venueNameLabel.font = [UIFont boldSystemFontOfSize:self.venueNameLabel.font.pointSize];
+        self.venueNameLabel.backgroundColor = [UIColor clearColor];
         //self.venueNameLabel.backgroundColor =  [UIColor orangeColor];
         
         self.detailsLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         self.detailsLabel.textColor = [UIColor grayColor];
         self.detailsLabel.font = [UIFont systemFontOfSize:self.detailsLabel.font.pointSize * 0.80f];
+        self.detailsLabel.backgroundColor = [UIColor clearColor];
         //self.detailsLabel.backgroundColor = [UIColor colorWithRed:1.0f green:0.8 blue:0.8 alpha:1.0f];
         
         self.venueSignalImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         self.venueSignalImageView.contentMode = UIViewContentModeScaleAspectFit;
-        //self.venueSignalImageView.backgroundColor = [UIColor redColor];
+        self.venueSignalImageView.backgroundColor = [UIColor clearColor];
         
         [self.contentView addSubview:self.venueSignalImageView];
         [self.contentView addSubview:self.detailsLabel];
@@ -63,10 +65,23 @@
     self.venueNameLabel.frame = (CGRect){CGPointMake(venueNameLabelLeft, venueNameLabelTop), self.venueNameLabel.bounds.size};
     
     CGFloat detailsLabelTop = midY - self.detailsLabel.bounds.size.height / 2.0f;
-    CGFloat detailsLabelLeft = venueNameLabelLeft + self.detailsLabel.bounds.size.width + nameLabelDetailLabelSeparatorWidth;
+    CGFloat detailsLabelLeft = venueNameLabelLeft + self.venueNameLabel.bounds.size.width + nameLabelDetailLabelSeparatorWidth;
     
     self.detailsLabel.frame = (CGRect){CGPointMake(detailsLabelLeft, detailsLabelTop), self.detailsLabel.bounds.size};
 }
+
+/*
+-(void)drawRect:(CGRect)rect {
+    [super drawRect:rect];
+    
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(ctx, [UIColor redColor].CGColor);
+    CGContextSetStrokeColorWithColor(ctx, [UIColor blueColor].CGColor);
+    
+    CGContextFillEllipseInRect(ctx, rect);
+    CGContextStrokeEllipseInRect(ctx, rect);
+}
+*/
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
