@@ -92,7 +92,7 @@ static NSArray *keys;
         cell.venueNameLabel.textColor = [UIColor blackColor];
         cell.venueSignalImageView.image = [UIImage imageNamed:@"signal.png"];
     } else {
-        cell.venueNameLabel.textColor = [UIColor lightGrayColor];
+        cell.venueNameLabel.textColor = [UIColor grayColor];
         cell.venueSignalImageView.image = nil;
     }
     
