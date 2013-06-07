@@ -24,6 +24,8 @@
 		39DEB4AB175F9A41009C6367 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DEB4AA175F9A41009C6367 /* CoreLocation.framework */; };
 		39DEB4AD175FBDA5009C6367 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DEB4AC175FBDA5009C6367 /* SystemConfiguration.framework */; };
 		39DEB4AF175FBDAB009C6367 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DEB4AE175FBDAB009C6367 /* MobileCoreServices.framework */; };
+		39E63CB1176269CE0097346A /* MockWiFi2GoService.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E63CB0176269CE0097346A /* MockWiFi2GoService.m */; };
+		39E63CB617626B340097346A /* WiFi2GoServiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E63CB517626B340097346A /* WiFi2GoServiceFactory.m */; };
 		3D3EF678FA0F4D60A41F6EDE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE37789F61940C7A17729E1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,11 @@
 		39DEB4AA175F9A41009C6367 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		39DEB4AC175FBDA5009C6367 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		39DEB4AE175FBDAB009C6367 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		39E63CAF176269CE0097346A /* MockWiFi2GoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockWiFi2GoService.h; sourceTree = "<group>"; };
+		39E63CB0176269CE0097346A /* MockWiFi2GoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockWiFi2GoService.m; sourceTree = "<group>"; };
+		39E63CB217626A0D0097346A /* WiFi2GoServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WiFi2GoServiceProtocol.h; sourceTree = "<group>"; };
+		39E63CB417626B340097346A /* WiFi2GoServiceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WiFi2GoServiceFactory.h; sourceTree = "<group>"; };
+		39E63CB517626B340097346A /* WiFi2GoServiceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WiFi2GoServiceFactory.m; sourceTree = "<group>"; };
 		3CE37789F61940C7A17729E1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		822B647B4AF04CB4BFECC60B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -119,16 +126,14 @@
 			isa = PBXGroup;
 			children = (
 				3938BFC6175E642800F46EBA /* Supporting Files */,
+				39E63CB317626B000097346A /* Service */,
 				39388A54176108C0002CAA74 /* VenuesListCell.h */,
 				39388A55176108C0002CAA74 /* VenuesListCell.m */,
 				3938BFCE175E642800F46EBA /* AppDelegate.h */,
 				3938BFCF175E642800F46EBA /* AppDelegate.m */,
-				3938BFDC175E6B5A00F46EBA /* WiFi2GoService.h */,
-				3938BFDD175E6B5A00F46EBA /* WiFi2GoService.m */,
 				3938BFDF175E70FB00F46EBA /* TestRootViewController.h */,
 				3938BFE0175E70FB00F46EBA /* TestRootViewController.m */,
-				39388A4A1760DE98002CAA74 /* Venue.h */,
-				39388A4B1760DE98002CAA74 /* Venue.m */,
+				39E63CB9176270820097346A /* Model */,
 			);
 			path = "WiFi2Go-ios";
 			sourceTree = "<group>";
@@ -146,6 +151,29 @@
 				3938BFD5175E642800F46EBA /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		39E63CB317626B000097346A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				39E63CB417626B340097346A /* WiFi2GoServiceFactory.h */,
+				39E63CB517626B340097346A /* WiFi2GoServiceFactory.m */,
+				39E63CB217626A0D0097346A /* WiFi2GoServiceProtocol.h */,
+				3938BFDC175E6B5A00F46EBA /* WiFi2GoService.h */,
+				3938BFDD175E6B5A00F46EBA /* WiFi2GoService.m */,
+				39E63CAF176269CE0097346A /* MockWiFi2GoService.h */,
+				39E63CB0176269CE0097346A /* MockWiFi2GoService.m */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		39E63CB9176270820097346A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				39388A4A1760DE98002CAA74 /* Venue.h */,
+				39388A4B1760DE98002CAA74 /* Venue.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +281,8 @@
 				3938BFE1175E70FB00F46EBA /* TestRootViewController.m in Sources */,
 				39388A4C1760DE98002CAA74 /* Venue.m in Sources */,
 				39388A56176108C0002CAA74 /* VenuesListCell.m in Sources */,
+				39E63CB1176269CE0097346A /* MockWiFi2GoService.m in Sources */,
+				39E63CB617626B340097346A /* WiFi2GoServiceFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
