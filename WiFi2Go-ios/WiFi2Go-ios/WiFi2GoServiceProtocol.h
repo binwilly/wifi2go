@@ -1,21 +1,21 @@
 //
-//  WiFi2GoService.h
+//  WiFi2GoServiceProtocol.h
 //  WiFi2Go-ios
 //
-//  Created by Nicolas Ameghino on 6/4/13.
+//  Created by Nicolas Ameghino on 6/7/13.
 //  Copyright (c) 2013 Nicolas Ameghino. All rights reserved.
 //
 
-#import "WiFi2GoServiceProtocol.h"
-
 #import <Foundation/Foundation.h>
-#import <AFNetworking/AFNetworking.h>
 
+typedef void(^WiFi2GoServiceWiFiQueryComplete)(NSArray *results, NSError *error);
 
-@interface WiFi2GoService : AFHTTPClient <WiFi2GoServiceProtocol>
+@protocol WiFi2GoServiceProtocol <NSObject>
 
+@required
 -(void) queryWiFiForLatitude:(double)latitude
                    longitude:(double)longitude
              completionBlock:(WiFi2GoServiceWiFiQueryComplete) block;
+
 
 @end
