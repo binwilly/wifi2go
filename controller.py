@@ -28,15 +28,13 @@ class SearchManager():
             wifi_fields = ['venue_id', 'venue_name', 'latitude', 'longitude', 'ssid', 'deprecate']
             data = {f: getattr(wifi, f) for f in wifi_fields}
             data['date_added'] = getHumanDate(wifi.date_added)
-            result_query.append(data)
 
             for wifi_security in models.WifiSecurity.query(ancestor=wifi.key):
-                print wifi_security
                 data['password'] = wifi_security.password
-                print wifi_security.pass_date_added
                 data['pass_date_added'] = getHumanDate(wifi_security.pass_date_added)
                 data['date_last_update'] = getHumanDate(wifi_security.date_last_update)
                 result_query.append(data)
+                print data
 
         return result_query
 
@@ -45,4 +43,4 @@ class Wifi():
 
     def addWifi(self, venue_id, venue_name, latitude, longitude, ssid, password):
         wifi_security = models.WifiSecurity()
-        return wifi_security.addWifi(venue_id, venue_name, latitude, longitude, ssid, password)
+        return wifi_security.add(venue_id, venue_name, latitude, longitude, ssid, password)

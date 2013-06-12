@@ -1,6 +1,6 @@
 import cgi
 import webapp2
-import service
+import controller
 
 
 MAIN_PAGE_HTML = """\
@@ -24,11 +24,12 @@ class MainPage(webapp2.RequestHandler):
     def get(self):
         self.response.write('<html><body>')
 
-        wifis = service.AccessPointsRequest.getLastestWifi(5)
+        wifis = controller.SearchManager.getLastestWifi(5)
 
         for wifi in wifis:
-            self.response.write('<div> <b>Location:</b> %s | <b>Wi-fi:</b> %s : <b>Added:</b> %s</div></br>' %  \
-                (wifi.venue_id, wifi.ssid, wifi.date_added.strftime('%Y-%m-%d')))
+          self.response.write('<div><b>V_id:</b> %d <b>V_name:</b> %s <b>ll:</b> %d,%d <b>ssid:</b> %s <b>Deprecate:</b> %s <b>date_added:</b> %s <b>Pass:</b> %s <b>pass_date_added:</b> %s <b>date_last_update:</b> %s </div></br>' % 
+            (wifi['venue_id'], wifi['venue_name'], wifi['latitude'], wifi['longitude'], wifi['ssid'], wifi['deprecate'], wifi['date_added'], wifi['password'], wifi['pass_date_added'], wifi['date_last_update']))
+
 
         if len(wifis) == 0:
             self.response.write('No hay wifi che!')
@@ -44,9 +45,7 @@ class MainPage(webapp2.RequestHandler):
         longitude = self.request.get('longitude')
         password = self.request.get('password')
 
-
-        accessPointAdd = service.AccessPointAdd()
-        accessPointAdd.addWifi(venue_id, venue_name, ssid, latitude, longitude, password)
+        controller.Wifi.addWifi(venue_id, venue_name, ssid, latitude, longitude, password)
 
         self.redirect('/')
 
