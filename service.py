@@ -11,13 +11,13 @@ def sendResponse(self, data, error=None):
         'error_message': "" if error is None else error,
         'response': data
     }
-
+    
+    self.response.headers['Content-Type'] = 'application/json'
     self.response.write(json.dumps(data_response))
 
 class AccessPointsRequest(webapp2.RequestHandler):
 
     def get(self):
-        self.response.headers['Content-Type'] = 'application/json'
         ll_param = self.request.get('ll')
         ll_split = ll_param.split(',')
 
@@ -28,8 +28,9 @@ class AccessPointsRequest(webapp2.RequestHandler):
         latitude = ll_split[0]
         longitude = ll_split[1]
 
-        near_locations = self.findNearLocations(latitude, longitude)
-        near_wifis = self.findWifiByLocations(near_locations)
+        search_controller = controller.SearchManager()
+        near_locations = search_controller.findNearLocations(latitude, longitude)
+        near_wifis = search_controller.findWifiByLocations(near_locations)
 
         if len(near_wifis) == 0:
             sendResponse(self, None, 'no access points found')

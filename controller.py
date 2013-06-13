@@ -10,13 +10,16 @@ class SearchManager():
 
     def findNearLocations(self, latitude, longitude):
         ''' @TODO implement foursquare '''
+
+
+        
         venue_id = ['Parrilla el c', 'Wifi - tu vieja3']
         return venue_id
 
     def findWifiByLocations(self, venues):
         ''' @TODO Ensure location data type '''
 
-        query_result = Wifi.query(Wifi.venue_id.IN(venues)).fetch()
+        query_result = models.Wifi.query(Wifi.venue_id.IN(venues)).fetch()
         return [wifi.to_dict() for wifi in query_result]
 
     @staticmethod
