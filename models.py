@@ -6,7 +6,7 @@ import string
 from google.appengine.ext import db
 
 class Wifi(ndb.Model):
-    venue_id = ndb.IntegerProperty(indexed=True)
+    venue_id = ndb.StringProperty(indexed=True)
     venue_name = ndb.StringProperty()
     latitude = ndb.IntegerProperty()
     longitude = ndb.IntegerProperty()
@@ -16,6 +16,7 @@ class Wifi(ndb.Model):
 
 class WifiSecurity(ndb.Model):
     password = ndb.StringProperty()
+    has_password = ndb.BooleanProperty()
     pass_date_added = ndb.DateTimeProperty(auto_now_add=True)
     date_last_update = ndb.DateTimeProperty(auto_now=True)
 
