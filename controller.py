@@ -1,5 +1,4 @@
-from google.appengine.ext import ndb
-import models
+from models import *
 import foursquareManager
 import json
 
@@ -19,7 +18,10 @@ class SearchManager():
 
         for venues in venues_results:
             data['foursquare'] = venues
-            data['wifi'] = models.Wifi.query(models.Wifi.venue_id(venues['id'])).fetch()
+            data['has_wifi'] = 'True'
+            data['wifi'] = self.getWifiByVenuId(venues['id'])
+            if data['wifi'] is None:
+                data['has_wifi'] = 'False'
             response_data.append(data)
 
         return response_data
@@ -32,7 +34,7 @@ class SearchManager():
 
     @staticmethod
     def getLastestWifi(self, number=5):
-        wifis = models.Wifi.query().fetch(number)
+        wifis = Wifi.query().fetch(number)
         result_query = []
 
         for wifi in wifis:
@@ -40,7 +42,7 @@ class SearchManager():
             data = {f: getattr(wifi, f) for f in wifi_fields}
             data['date_added'] = getHumanDate(wifi.date_added)
 
-            for wifi_security in models.WifiSecurity.query(ancestor=wifi.key):
+            for wifi_security in WifiSecurity.query(ancestor=wifi.key):
                 data['password'] = wifi_security.password
                 data['pass_date_added'] = getHumanDate(wifi_security.pass_date_added)
                 data['date_last_update'] = getHumanDate(wifi_security.date_last_update)
@@ -49,23 +51,25 @@ class SearchManager():
         return result_query
 
     def getWifiByVenuId(self, venue_id):
-        wifis = models.Wifi.query().fetch()
-        result_query = []
+        #wifi_result = Wifi.query(Wifi.venue_id == venue_id).fetch()
+        wifi_result = Wifi.query(Wifi.venue_id == '23322').fetch()
+        
+        if len(wifi_result) == 0:
+            return None
 
-        for wifi in wifis:
-            wifi_fields = ['venue_id', 'venue_name', 'latitude', 'longitude', 'ssid', 'deprecate']
-            data = {f: getattr(wifi, f) for f in wifi_fields}
-            data['date_added'] = getHumanDate(wifi.date_added)
+        wifi_fields = ['venue_id', 'venue_name', 'latitude', 'longitude', 'ssid', 'deprecate']
+        data = {f: getattr(wifi_resul, f) for f in wifi_fields}
+        data['date_added'] = getHumanDate(wifi_resul.date_added)
 
-            for wifi_security in models.WifiSecurity.query(ancestor=wifi.key):
-                data['password'] = wifi_security.password
-                data['pass_date_added'] = getHumanDate(wifi_security.pass_date_added)
-                data['date_last_update'] = getHumanDate(wifi_security.date_last_update)
-                result_query.append(data)
+        for wifi_security in WifiSecurity.query(ancestor=wifi_resul.key):
+            data['password'] = wifi_security.password
+            data['pass_date_added'] = getHumanDate(wifi_security.pass_date_added)
+            data['date_last_update'] = getHumanDate(wifi_security.date_last_update)
+            result_query.append(data)
 
         return result_query
 
-class Wifi():
+class WifiManager():
 
     def addWifi(self, venue_id, venue_name, latitude, longitude, ssid, has_password, password):
         wifi_security = models.WifiSecurity()

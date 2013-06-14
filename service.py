@@ -53,7 +53,7 @@ class AccessPointAdd(webapp2.RequestHandler):
         password = data['password']
         ssid = data['ssid']
 
-        wifi_controller = controller.Wifi()
+        wifi_controller = controller.WifiManager()
         result = wifi_controller.addWifi(venue_id, venue_name, latitude, longitude, ssid, has_password, password)
 
         if result is True:
