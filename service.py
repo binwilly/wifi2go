@@ -29,8 +29,10 @@ class AccessPointsRequest(webapp2.RequestHandler):
         longitude = ll_split[1]
 
         search_controller = controller.SearchManager()
-        near_locations = search_controller.findNearLocations(latitude, longitude)
-        near_wifis = search_controller.findWifiByLocations(near_locations)
+        near_locations = search_controller.findNearVenues(latitude, longitude)
+        sendResponse(self, near_locations)
+        return
+        #near_wifis = search_controller.findWifiByLocations(near_locations)
 
         if len(near_wifis) == 0:
             sendResponse(self, None, 'no access points found')
@@ -47,11 +49,12 @@ class AccessPointAdd(webapp2.RequestHandler):
         venue_name = data['venue_name']
         latitude = data['latitude']
         longitude = data['longitude']
+        has_password = data['has_password']
         password = data['password']
         ssid = data['ssid']
 
         wifi_controller = controller.Wifi()
-        result = wifi_controller.addWifi(venue_id, venue_name, latitude, longitude, ssid, password)
+        result = wifi_controller.addWifi(venue_id, venue_name, latitude, longitude, ssid, has_password, password)
 
         if result is True:
             sendResponse(self, None)

@@ -20,7 +20,7 @@ class WifiSecurity(ndb.Model):
     pass_date_added = ndb.DateTimeProperty(auto_now_add=True)
     date_last_update = ndb.DateTimeProperty(auto_now=True)
 
-    def add(self, venue_id, venue_name, latitude, longitude, ssid, password):
+    def add(self, venue_id, venue_name, latitude, longitude, ssid, has_password, password):
         ''' return Boolean '''
         try:
             wifi = Wifi()
@@ -31,8 +31,10 @@ class WifiSecurity(ndb.Model):
             wifi.ssid = ssid
             wifi.put()
 
+            print has_password
             wifiSecurity = WifiSecurity(parent=wifi.key)
             wifiSecurity.password = password
+            WifiSecurity.has_password = has_password
             wifiSecurity.put()
 
         except Exception, e:

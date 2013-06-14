@@ -1,6 +1,7 @@
 import cgi
 import webapp2
 import controller
+import foursquareManager
 
 
 MAIN_PAGE_HTML = """\
@@ -25,6 +26,8 @@ class MainPage(webapp2.RequestHandler):
         self.response.write('<html><body>')
 
         wifis = controller.SearchManager.getLastestWifi(5)
+
+        controller.SearchManager().findNearLocations('222', '22')
 
         for wifi in wifis:
           self.response.write('<div><b>V_id:</b> %d <b>V_name:</b> %s <b>ll:</b> %d,%d <b>ssid:</b> %s <b>Deprecate:</b> %s <b>date_added:</b> %s <b>Pass:</b> %s <b>pass_date_added:</b> %s <b>date_last_update:</b> %s </div></br>' % 
@@ -51,5 +54,5 @@ class MainPage(webapp2.RequestHandler):
 
 
 application = webapp2.WSGIApplication([
-    ('/', MainPage)
+    ('/', MainPage),
 ], debug=True)
