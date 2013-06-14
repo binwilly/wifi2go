@@ -11,19 +11,19 @@ class SearchManager():
 
     def findNearVenues(self, latitude, longitude):
         response_data = []
-        data = {}
         foursquare_result = foursquareManager.getVenusNearby(latitude, longitude)
         venues_results = foursquare_result['response']
         venues_results = venues_results['venues']
 
         for venues in venues_results:
+            #print venues, '\n'
+            data = {}
             data['foursquare'] = venues
             data['has_wifi'] = 'True'
             data['wifi'] = self.getWifiByVenuId(venues['id'])
             if data['wifi'] is None:
                 data['has_wifi'] = 'False'
             response_data.append(data)
-
         return response_data
 
     def findWifiByLocations(self, venues):
@@ -51,8 +51,8 @@ class SearchManager():
         return result_query
 
     def getWifiByVenuId(self, venue_id):
-        #wifi_result = Wifi.query(Wifi.venue_id == venue_id).fetch()
-        wifi_result = Wifi.query(Wifi.venue_id == '23322').fetch()
+        wifi_result = Wifi.query(Wifi.venue_id == venue_id).fetch()
+        #wifi_result = Wifi.query(Wifi.venue_id == '23322').fetch()
         
         if len(wifi_result) == 0:
             return None
