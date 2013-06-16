@@ -5,8 +5,7 @@ import string
 class Wifi(ndb.Model):
     venue_id = ndb.StringProperty(indexed=True)
     venue_name = ndb.StringProperty()
-    latitude = ndb.IntegerProperty()
-    longitude = ndb.IntegerProperty()
+    ll = ndb.GeoPtProperty()
     ssid = ndb.StringProperty()
     deprecate = ndb.BooleanProperty(default=False)
     date_added = ndb.DateTimeProperty(auto_now_add=True)
@@ -17,18 +16,16 @@ class WifiSecurity(ndb.Model):
     pass_date_added = ndb.DateTimeProperty(auto_now_add=True)
     date_last_update = ndb.DateTimeProperty(auto_now=True)
 
-    def add(self, venue_id, venue_name, latitude, longitude, ssid, has_password, password):
+    def add(self, venue_id, venue_name, ll, ssid, has_password, password):
         ''' return Boolean '''
         try:
             wifi = Wifi()
             wifi.venue_id = venue_id
             wifi.venue_name = venue_name
-            wifi.latitude = latitude
-            wifi.longitude = longitude
+            wifi.ll = ndb.GeoPt(ll)
             wifi.ssid = ssid
             wifi.put()
 
-            print has_password
             wifiSecurity = WifiSecurity(parent=wifi.key)
             wifiSecurity.password = password
             WifiSecurity.has_password = has_password
