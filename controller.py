@@ -16,7 +16,6 @@ class SearchManager():
         venues_results = venues_results['venues']
 
         for venues in venues_results:
-            #print venues, '\n'
             data = {}
             data['foursquare'] = venues
             data['has_wifi'] = 'True'
@@ -51,23 +50,23 @@ class SearchManager():
         return result_query
 
     def getWifiByVenuId(self, venue_id):
-        wifi_result = Wifi.query(Wifi.venue_id == venue_id).fetch()
-        #wifi_result = Wifi.query(Wifi.venue_id == '23322').fetch()
-        print wifi_result, ' ---------------- '
-        if len(wifi_result) == 0:
+        ndb_result = Wifi.query(Wifi.venue_id == venue_id).fetch()
+
+        if len(ndb_result) == 0:
             return None
 
-        wifi_fields = ['venue_id', 'venue_name', 'll', 'ssid', 'deprecate']
+        wifi_result = ndb_result[0]
+
+        wifi_fields = ['venue_id', 'ssid', 'deprecate']
         data = {f: getattr(wifi_result, f) for f in wifi_fields}
+
         data['date_added'] = getHumanDate(wifi_result.date_added)
 
         for wifi_security in WifiSecurity.query(ancestor=wifi_result.key):
             data['password'] = wifi_security.password
             data['pass_date_added'] = getHumanDate(wifi_security.pass_date_added)
             data['date_last_update'] = getHumanDate(wifi_security.date_last_update)
-            result_query.append(data)
-
-        return result_query
+        return data
 
 class WifiManager():
 
