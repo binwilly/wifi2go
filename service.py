@@ -20,22 +20,12 @@ class AccessPointsRequest(webapp2.RequestHandler):
     def get(self):
         limit_param = self.request.get('limit')
         ll_param = self.request.get('ll')
-        ll_split = ll_param.split(',')
-
-        if len(ll_split) != 2:
-            sendResponse(self, None, 'latitude or longitude param missing')
-            return
-
-        latitude = ll_split[0]
-        longitude = ll_split[1]
 
         search_controller = controller.SearchManager()
         near_locations = search_controller.findNearVenues(ll_param, limit_param)
 
-        
         sendResponse(self, near_locations)
         return
-
 
         if len(near_wifis) == 0:
             sendResponse(self, None, 'no access points found')
