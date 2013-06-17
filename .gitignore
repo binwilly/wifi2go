@@ -56,7 +56,6 @@ build/*
 *.perspective
 *.perspectivev3
 *.pbxuser
-*.xcworkspace
 xcuserdata
 # Xcode
 .DS_Store
@@ -69,7 +68,6 @@ build/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-*.xcworkspace
 !default.xcworkspace
 xcuserdata
 profile
