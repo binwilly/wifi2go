@@ -35,12 +35,21 @@
 }
 
 -(BOOL)hasWifi {
-    return self[@"password"] != [NSNull null] && [self[@"password"] length] != 0;
+    return [self[@"has_wifi"] boolValue];
 }
 
 -(NSString *)name {
     return self[@"foursquare"][@"name"];
 }
+
+-(NSString*) ssid {
+    return self[@"wifi"][@"ssid"];
+}
+
+-(NSString*) password {
+    return self[@"wifi"][@"password"];
+}
+
 
 -(NSString *)mainCategory {
     NSArray *categories = self[@"foursquare"][@"categories"];

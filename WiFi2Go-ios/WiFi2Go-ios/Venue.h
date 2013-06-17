@@ -20,6 +20,7 @@
 -(NSString *)name;
 -(NSString *)mainCategory;
 -(NSArray *)allCategories;
-
+-(NSString *) ssid;
+-(NSString *) password;
 
 @end
