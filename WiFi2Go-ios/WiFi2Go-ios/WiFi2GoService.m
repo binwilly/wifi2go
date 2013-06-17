@@ -14,12 +14,12 @@
 static NSString *urlString;
 
 +(void)load {
-    urlString = @"http://localhost:8080/api/1/wifi";
+    urlString = @"http://wifi2use.appspot.com/api/1/";
     //urlString = @"http://localhost:8080/";
 }
 
 -(id)init {
-    self = [super initWithBaseURL:[NSURL URLWithString:@"http://localhost:8080/api/1/"]];
+    self = [super initWithBaseURL:[NSURL URLWithString:@"http://wifi2use.appspot.com/api/1/"]];
     if (self) {
         
     }
