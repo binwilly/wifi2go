@@ -8,7 +8,7 @@ handlers:
 - url: /api/.*
   script: service.application
 - url: /*
-  script: wifi2go.application
+  script: wifi2use.application
 
 libraries:
 - name: webapp2
