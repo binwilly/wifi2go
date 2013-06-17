@@ -16,6 +16,7 @@ typedef void(^WiFi2GoServiceWiFiQueryComplete)(NSArray *results, NSError *error)
 -(void) queryWiFiForLatitude:(double)latitude
                    longitude:(double)longitude
              completionBlock:(WiFi2GoServiceWiFiQueryComplete) block;
+-(void) addNewAccessPointForVenueID:(NSString*) venueId SSID:(NSString*) ssid password:(NSString*) password;
 
 
 @end
