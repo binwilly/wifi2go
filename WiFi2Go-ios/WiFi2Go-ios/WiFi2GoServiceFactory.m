@@ -17,7 +17,7 @@ static id<WiFi2GoServiceProtocol> serviceInstance;
 
 +(id<WiFi2GoServiceProtocol>) getService {
     if (!serviceInstance) {
-        serviceInstance = [MockWiFi2GoService new];
+        serviceInstance = [WiFi2GoService new];
     }
     return serviceInstance;
 }
