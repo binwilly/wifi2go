@@ -56,7 +56,7 @@ static NSArray *keys;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //self.tableView.rowHeight = 50.0f;
+    self.tableView.rowHeight = 50.0f;
     [self.tableView registerClass:NSClassFromString(@"VenuesListCell") forCellReuseIdentifier:@"Cell"];
 }
 
@@ -85,8 +85,8 @@ static NSArray *keys;
     VenuesListCell *cell = (VenuesListCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     Venue *v = self.data[indexPath.row];
-    cell.venueNameLabel.text = [NSString stringWithFormat:@"%@", v[@"venue_id"]];
-    cell.detailsLabel.text = @"#superfafafa";
+    cell.venueNameLabel.text = [v name];
+    cell.detailsLabel.text = [v mainCategory];
     
     if ([v hasWifi]) {
         cell.venueNameLabel.textColor = [UIColor blackColor];
