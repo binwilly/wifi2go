@@ -12,14 +12,17 @@ class Wifi(ndb.Model):
 
 class WifiSecurity(ndb.Model):
     password = ndb.StringProperty()
-    has_password = ndb.BooleanProperty()
+    '''Without dafult=True doesn't work properly (I don't know why)'''
+    has_password = ndb.BooleanProperty(default=True)
     pass_date_added = ndb.DateTimeProperty(auto_now_add=True)
     date_last_update = ndb.DateTimeProperty(auto_now=True)
 
     def add(self, venue_id, venue_name, ll, ssid, has_password, password):
         ''' return Boolean '''
         try:
-            wifi = Wifi()
+            wifi_key = ndb.Key('Wifi', venue_id)
+
+            wifi = Wifi(key=wifi_key)
             wifi.venue_id = venue_id
             wifi.venue_name = venue_name
             wifi.ll = ndb.GeoPt(ll)
