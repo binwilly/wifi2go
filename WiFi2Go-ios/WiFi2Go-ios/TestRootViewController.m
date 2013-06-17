@@ -51,7 +51,24 @@ static NSArray *keys;
 
 -(void) loadData:(id) sender {
     self.locateMeButton.enabled = NO;
-    [self.locationManager startUpdatingLocation];
+    
+    // Using real location data
+    // [self.locationManager startUpdatingLocation];
+    
+    // Using fake location data
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(
+                                                                   -34.5968823,
+                                                                   -58.3722353
+                                                                   );
+
+    self.currentLocation = [[CLLocation alloc] initWithCoordinate:coordinate
+                                                         altitude:0
+                                               horizontalAccuracy:1
+                                                 verticalAccuracy:1
+                                                           course:0.0
+                                                            speed:0.0
+                                                        timestamp:[NSDate date]];
+    [self locationManager:nil didUpdateLocations:@[self.currentLocation]];
 }
 
 - (void)viewDidLoad {
@@ -65,7 +82,6 @@ static NSArray *keys;
 }
 
 -(void) viewDidAppear:(BOOL)animated {
-    [self test];
     //[self loadData:nil];
 }
 
@@ -100,31 +116,53 @@ static NSArray *keys;
     return cell;
 }
 
-#pragma mark - Table view delegate
+-(QRootElement *) createNewWifiForm:(Venue*) venue {
+    QRootElement *root = [[QRootElement alloc] init];
+    
+    root.title = @"New Access Point";
+    root.grouped = YES;
+    
+    QSection *venueDataSection = [[QSection alloc] initWithTitle:@"Venue data"];
+    QLabelElement *venueNameLabel = [[QLabelElement alloc] initWithTitle:@"Name"
+                                                                   Value:venue.name];
+    [venueDataSection addElement:venueNameLabel];
+    
+    QSection *venueWifiSection = [[QSection alloc] initWithTitle:@"Wi-Fi data"];
+    QEntryElement *wifiSSIDEntryElement = [[QEntryElement alloc] initWithKey:@"wifi_ssid"];
+    wifiSSIDEntryElement.title = @"Wi-Fi name";
+    
+    QEntryElement * wifiPasswordEntryElement = [[QEntryElement alloc] initWithKey:@"wifi_password"];
+    wifiPasswordEntryElement.title = @"Wi-Fi password";
+    
+    [venueWifiSection addElement:wifiSSIDEntryElement];
+    [venueWifiSection addElement:wifiPasswordEntryElement];
+    
+    QSection *submitButtonSection = [[QSection alloc] init];
+    submitButtonSection.footer = @"Please, do not add private-access wi-fi networks such as home or office networks";
+    QButtonElement *submitButtonElement = [[QButtonElement alloc] initWithTitle:@"Submit"];
+    submitButtonElement.onSelected = ^{
+        NSLog(@"#fafafa");
+    };
+    [submitButtonSection addElement:submitButtonElement];
+    
+    [root addSection:venueDataSection];
+    [root addSection:venueWifiSection];
+    [root addSection:submitButtonSection];
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    return root;
 }
 
-#pragma mark - WiFi2GoService testbed
-
--(void) test {
-    self.locateMeButton.enabled = YES;
-    [[WiFi2GoServiceFactory getService] queryWiFiForLatitude:-34.0
-                                                   longitude:-58.0
-                                             completionBlock:^(NSArray *results, NSError *error) {
-                                                 if (error) {
-                                                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                                                     message:[error localizedDescription]
-                                                                                                    delegate:nil
-                                                                                           cancelButtonTitle:@"Y bueh..."
-                                                                                           otherButtonTitles:nil];
-                                                     [alert show];
-                                                     return;
-                                                 }
-                                                 self.data = results;
-                                                 [self.tableView reloadData];
-                                             }];
+#pragma mark - Table view delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    Venue *venue = self.data[indexPath.row];
+    if (venue.hasWifi) {
+        // show details
+    } else {
+        UINavigationController *formNav = [QuickDialogController controllerWithNavigationForRoot:[self createNewWifiForm:venue]];
+        [self presentViewController:formNav animated:YES completion:NULL];
+    }
+    
 }
 
 #pragma mark - CLLocationManager delegate
@@ -140,8 +178,11 @@ static NSArray *keys;
         }
     }
     
+    
+    
     [self.locationManager stopUpdatingLocation];
     self.locateMeButton.enabled = YES;
+    
     [[WiFi2GoServiceFactory getService] queryWiFiForLatitude:self.currentLocation.coordinate.latitude
                                                    longitude:self.currentLocation.coordinate.longitude
                                              completionBlock:^(NSArray *results, NSError *error) {
