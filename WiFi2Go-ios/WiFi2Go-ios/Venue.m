@@ -28,11 +28,32 @@
 }
 
 -(id)objectForKeyedSubscript: (id)key {
+    if (self.data[key] == nil) {
+        return self.data[@"foursquare"][key];
+    }
     return self.data[key];
 }
 
 -(BOOL)hasWifi {
     return self[@"password"] != [NSNull null] && [self[@"password"] length] != 0;
+}
+
+-(NSString *)name {
+    return self[@"foursquare"][@"name"];
+}
+
+-(NSString *)mainCategory {
+    NSArray *categories = self[@"foursquare"][@"categories"];
+    if ([categories count] > 0) {
+        return categories[0][@"shortName"];
+    }
+    return nil;
+}
+
+-(NSArray *)allCategories {
+    return [self[@"foursquare"][@"categories"] map:^id(id obj) {
+        return obj[@"shortName"];
+    }];
 }
 
 @end

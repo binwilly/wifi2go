@@ -17,5 +17,9 @@
 
 
 -(BOOL) hasWifi;
+-(NSString *)name;
+-(NSString *)mainCategory;
+-(NSArray *)allCategories;
+
 
 @end
