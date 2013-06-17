@@ -43,6 +43,7 @@ class SearchManager():
 
             for wifi_security in WifiSecurity.query(ancestor=wifi.key):
                 data['password'] = wifi_security.password
+                data['has_password'] = wifi_security.has_password
                 data['pass_date_added'] = getHumanDate(wifi_security.pass_date_added)
                 data['date_last_update'] = getHumanDate(wifi_security.date_last_update)
                 result_query.append(data)
