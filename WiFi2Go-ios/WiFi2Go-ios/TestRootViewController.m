@@ -102,7 +102,7 @@ static NSArray *keys;
     
     Venue *v = self.data[indexPath.row];
     cell.venueNameLabel.text = [v name];
-    cell.detailsLabel.text = [v mainCategory];
+    cell.detailsLabel.text = v[@"id"];
     
     if ([v hasWifi]) {
         cell.venueNameLabel.textColor = [UIColor blackColor];
@@ -141,7 +141,18 @@ static NSArray *keys;
     submitButtonSection.footer = @"Please, do not add private-access wi-fi networks such as home or office networks";
     QButtonElement *submitButtonElement = [[QButtonElement alloc] initWithTitle:@"Submit"];
     submitButtonElement.onSelected = ^{
-        NSLog(@"#fafafa");
+        
+        [[WiFi2GoServiceFactory getService] addNewAccessPointForVenueID:@"test-venue-id"
+                                                                   SSID:@"Dr. Cooper's Wi-Fi"
+                                                               password:@"pennyisafreeloader"];
+        
+        [UIAlertView showAlertViewWithTitle:@"Placeholder"
+                                    message:@"Aca es donde mostramos los datos"
+                          cancelButtonTitle:@"Aceptar"
+                          otherButtonTitles:nil
+                                    handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                        [self.navigationController popViewControllerAnimated:YES];
+                                    }];
     };
     [submitButtonSection addElement:submitButtonElement];
     
@@ -155,12 +166,19 @@ static NSArray *keys;
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    Venue *venue = self.data[indexPath.row];
+    Venue *venue = self.data[indexPath.row];    
     if (venue.hasWifi) {
-        // show details
+        NSString *message = [NSString stringWithFormat:@"SSID: %@\nPassword: %@", venue.ssid, venue.password];
+        [UIAlertView showAlertViewWithTitle:@"Conectate!"
+                                    message:message
+                          cancelButtonTitle:@"Aceptar"
+                          otherButtonTitles:nil
+                                    handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                        [[UIPasteboard generalPasteboard] setString:venue.password];
+                                    }];
     } else {
-        UINavigationController *formNav = [QuickDialogController controllerWithNavigationForRoot:[self createNewWifiForm:venue]];
-        [self presentViewController:formNav animated:YES completion:NULL];
+        QuickDialogController *form = [QuickDialogController controllerForRoot:[self createNewWifiForm:venue]];
+        [self.navigationController pushViewController:form animated:YES];
     }
     
 }
