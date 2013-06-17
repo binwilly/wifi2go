@@ -40,4 +40,8 @@ float getfrnd() {
     });
 }
 
+-(void)addNewAccessPointForVenueID:(NSString *)venueId SSID:(NSString *)ssid password:(NSString *)password {
+    
+}
+
 @end

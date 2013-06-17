@@ -53,6 +53,16 @@ static NSString *urlString;
     [operation start];
 }
 
+
+-(void) addNewAccessPointForVenueID:(NSString*) venueId SSID:(NSString*) ssid password:(NSString*) password {
+    // http://wifi2use.appspot.com/api/1/addwifi
+    //NSURL *url = [NSURL URLWithString:[[self.baseURL absoluteString] stringByAppendingFormat:@"addwifi"]];
+    NSURLRequest *request = [self requestWithMethod:@"POST"
+                                               path:@"addwifi"
+                                         parameters:nil];
+    NSLog(@"%@", request.URL.absoluteString);
+}
+
 -(void)_nonaf_queryWiFiForLatitude:(double)latitude
                          longitude:(double)longitude
                    completionBlock:(WiFi2GoServiceWiFiQueryComplete)block {
