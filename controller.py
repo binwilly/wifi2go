@@ -37,7 +37,7 @@ class SearchManager():
         result_query = []
 
         for wifi in wifis:
-            wifi_fields = ['venue_id', 'venue_name', 'll', 'ssid', 'deprecate']
+            wifi_fields = ['venue_id', 'ssid', 'deprecate']
             data = {f: getattr(wifi, f) for f in wifi_fields}
             data['date_added'] = getHumanDate(wifi.date_added)
 
@@ -71,6 +71,6 @@ class SearchManager():
 
 class WifiManager():
 
-    def addWifi(self, venue_id, venue_name, ll, ssid, has_password, password):
+    def addWifi(self, venue_id, ssid, has_password, password):
         wifi_security = WifiSecurity()
-        return wifi_security.add(venue_id, venue_name, ll, ssid, has_password, password)
+        return wifi_security.add(venue_id, ssid, has_password, password)
