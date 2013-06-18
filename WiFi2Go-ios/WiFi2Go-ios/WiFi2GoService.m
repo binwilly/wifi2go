@@ -32,12 +32,12 @@
 static NSString *urlString;
 
 +(void)load {
-    urlString = @"http://wifi2use.appspot.com/api/1/";
-    //urlString = @"http://localhost:8080/";
+    urlString = @"wifi2use.appspot.com";
+    //urlString = @"localhost:9090";
 }
 
 -(id)init {
-    self = [super initWithBaseURL:[NSURL URLWithString:@"http://wifi2use.appspot.com/api/1/"]];
+    self = [super initWithBaseURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/api/1/", urlString]]];
     if (self) {
         
     }
@@ -83,10 +83,16 @@ static NSString *urlString;
                                  @"has_password": @(password != (NSString*)[NSNull null])
                                  };
     
+    NSError *serializationError = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:NSJSONWritingPrettyPrinted error:&serializationError];
+    
     NSMutableURLRequest *request = [self requestWithMethod:@"POST"
                                                path:@"addwifi"
-                                         parameters:parameters];
+                                         parameters:nil];
+    request.HTTPBody = jsonData;
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSLog(@"Request: %@", [request logDebugData]);
     
     [[AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         NSLog(@"success");
