@@ -2,6 +2,7 @@ from google.appengine.ext import ndb
 import controller
 import webapp2
 import json
+import logging
 
 
 def sendResponse(self, data, error=None):
@@ -36,6 +37,8 @@ class AccessPointsRequest(webapp2.RequestHandler):
 class AccessPointAdd(webapp2.RequestHandler):
 
     def post(self):
+
+        logging.info(" ____Body____: " + self.request.body)
 
         data = json.loads(self.request.body)
         venue_id = data['venue_id']
