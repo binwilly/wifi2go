@@ -10,9 +10,10 @@
 
 @interface Venue : NSObject
 
+@property(nonatomic, assign) float distanceToCurrentLocation;
+
 -(id) initWithDictionary:(NSDictionary*) dictionary;
 +(id) venueWithDictionary:(NSDictionary*) dictionary;
-
 -(id)objectForKeyedSubscript: (id)key;
 
 
