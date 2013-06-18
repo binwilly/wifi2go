@@ -53,9 +53,10 @@ static NSArray *keys;
     self.locateMeButton.enabled = NO;
     
     // Using real location data
-    // [self.locationManager startUpdatingLocation];
+    [self.locationManager startUpdatingLocation];
     
     // Using fake location data
+    /*
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(
                                                                    -34.5968823,
                                                                    -58.3722353
@@ -69,6 +70,7 @@ static NSArray *keys;
                                                             speed:0.0
                                                         timestamp:[NSDate date]];
     [self locationManager:nil didUpdateLocations:@[self.currentLocation]];
+     */
 }
 
 - (void)viewDidLoad {
@@ -82,7 +84,7 @@ static NSArray *keys;
 }
 
 -(void) viewDidAppear:(BOOL)animated {
-    //[self loadData:nil];
+    [self loadData:nil];
 }
 
 #pragma mark - Table view data source
@@ -201,7 +203,7 @@ static NSArray *keys;
     }
     
     for (CLLocation *location in locations) {
-        if (location.horizontalAccuracy < 50.0f) {
+        if (location.horizontalAccuracy < 100.0f) {
             self.currentLocation = location;
             break;
         }
@@ -224,7 +226,23 @@ static NSArray *keys;
                                                      [alert show];
                                                      return;
                                                  }
-                                                 self.data = results;
+                                                 
+                                                 
+                                                 for (Venue *v in results) {
+                                                     NSDictionary *latlng = v[@"location"];
+                                                     double lat = [latlng[@"lat"] doubleValue];
+                                                     double lng = [latlng[@"lng"] doubleValue];
+                                                     
+                                                     CLLocation *location = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
+                                                     CLLocationDistance distance = [location distanceFromLocation:self.currentLocation];
+                                                     v.distanceToCurrentLocation = distance;
+                                                 }
+                                                 
+                                                 
+                                                 
+                                                 self.data = [results sortedArrayUsingDescriptors:
+                                                              @[[NSSortDescriptor sortDescriptorWithKey:@"distanceToCurrentLocation"
+                                                                                              ascending:YES]]];
                                                  [self.tableView reloadData];
                                              }];
 }
