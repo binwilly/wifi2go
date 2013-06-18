@@ -9,6 +9,24 @@
 #import "WiFi2GoService.h"
 #import "Venue.h"
 
+@interface NSURLRequest (Debug)
+- (NSString*) logDebugData;
+@end
+
+
+@implementation NSURLRequest (Debug)
+- (NSString*) logDebugData {
+    NSMutableString *s = [NSMutableString string];
+	[s appendFormat:@"Method: %@\n", self.HTTPMethod];
+    [s appendFormat:@"Headers: %@\n", [self allHTTPHeaderFields]];
+	[s appendFormat:@"URL: %@\n", self.URL.absoluteString];
+	[s appendFormat:@"Body: %@\n", [[NSString alloc] initWithData:self.HTTPBody encoding:NSUTF8StringEncoding]];
+    return s;
+}
+
+@end
+
+
 @implementation WiFi2GoService
 
 static NSString *urlString;
@@ -57,10 +75,24 @@ static NSString *urlString;
 -(void) addNewAccessPointForVenueID:(NSString*) venueId SSID:(NSString*) ssid password:(NSString*) password {
     // http://wifi2use.appspot.com/api/1/addwifi
     //NSURL *url = [NSURL URLWithString:[[self.baseURL absoluteString] stringByAppendingFormat:@"addwifi"]];
-    NSURLRequest *request = [self requestWithMethod:@"POST"
+    
+    NSDictionary *parameters = @{
+                                 @"venue_id": venueId,
+                                 @"ssid": ssid,
+                                 @"password": password != (NSString*)[NSNull null] ? password : @"",
+                                 @"has_password": @(password != (NSString*)[NSNull null])
+                                 };
+    
+    NSMutableURLRequest *request = [self requestWithMethod:@"POST"
                                                path:@"addwifi"
-                                         parameters:nil];
-    NSLog(@"%@", request.URL.absoluteString);
+                                         parameters:parameters];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    [[AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSLog(@"success");
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"failed: %@", [error localizedDescription]);
+    }] start];
 }
 
 -(void)_nonaf_queryWiFiForLatitude:(double)latitude

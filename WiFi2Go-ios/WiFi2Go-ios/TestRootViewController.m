@@ -101,8 +101,16 @@ static NSArray *keys;
     VenuesListCell *cell = (VenuesListCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     Venue *v = self.data[indexPath.row];
+    
+    NSDictionary *latlng = v[@"location"];
+    double lat = [latlng[@"lat"] doubleValue];
+    double lng = [latlng[@"lng"] doubleValue];
+    
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
+    CLLocationDistance distance = [location distanceFromLocation:self.currentLocation];
+    
     cell.venueNameLabel.text = [v name];
-    cell.detailsLabel.text = v[@"id"];
+    cell.detailsLabel.text = [NSString stringWithFormat:@"%.0lf m", round(distance)];
     
     if ([v hasWifi]) {
         cell.venueNameLabel.textColor = [UIColor blackColor];
@@ -111,8 +119,6 @@ static NSArray *keys;
         cell.venueNameLabel.textColor = [UIColor grayColor];
         cell.venueSignalImageView.image = nil;
     }
-    
-    
     return cell;
 }
 
@@ -142,12 +148,17 @@ static NSArray *keys;
     QButtonElement *submitButtonElement = [[QButtonElement alloc] initWithTitle:@"Submit"];
     submitButtonElement.onSelected = ^{
         
-        [[WiFi2GoServiceFactory getService] addNewAccessPointForVenueID:@"test-venue-id"
-                                                                   SSID:@"Dr. Cooper's Wi-Fi"
-                                                               password:@"pennyisafreeloader"];
+        NSString *ssid = [wifiSSIDEntryElement textValue];
+        NSString *password = [wifiPasswordEntryElement textValue];
+        NSString *venueId = venue[@"id"];
+
+        
+        [[WiFi2GoServiceFactory getService] addNewAccessPointForVenueID: venueId
+                                                                   SSID: ssid
+                                                               password: [password length] == 0 ? [NSNull null] : password];
         
         [UIAlertView showAlertViewWithTitle:@"Placeholder"
-                                    message:@"Aca es donde mostramos los datos"
+                                    message:@"Aca es donde mandamos los datos"
                           cancelButtonTitle:@"Aceptar"
                           otherButtonTitles:nil
                                     handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
