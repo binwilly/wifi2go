@@ -13,8 +13,8 @@ class MainPage(webapp2.RequestHandler):
         controller.SearchManager().findNearVenues("58.371839, 34.59624", 30)
 
         for wifi in wifis:
-          self.response.write('<div><b>V_id:</b> %s <b>V_name:</b> %s <b>ll:</b> %s <b>ssid:</b> %s <b>Deprecate:</b> %s <b>date_added:</b> %s <b>Pass:</b> %s <b>pass_date_added:</b> %s <b>date_last_update:</b> %s </div></br>' % 
-            (wifi['venue_id'], wifi['venue_name'], wifi['ll'], wifi['ssid'], wifi['deprecate'], wifi['date_added'], wifi['password'], wifi['pass_date_added'], wifi['date_last_update']))
+          self.response.write('<div><b>V_id:</b> %s <b>ssid:</b> %s <b>Deprecate:</b> %s <b>date_added:</b> %s <b>Pass:</b> %s <b>pass_date_added:</b> %s <b>date_last_update:</b> %s </div></br>' % 
+            (wifi['venue_id'], wifi['ssid'], wifi['deprecate'], wifi['date_added'], wifi['password'], wifi['pass_date_added'], wifi['date_last_update']))
 
 
         if len(wifis) == 0:

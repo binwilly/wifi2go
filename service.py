@@ -39,14 +39,12 @@ class AccessPointAdd(webapp2.RequestHandler):
 
         data = json.loads(self.request.body)
         venue_id = data['venue_id']
-        venue_name = data['venue_name']
-        ll = data['ll']
         has_password = data['has_password']
         password = data['password']
         ssid = data['ssid']
 
         wifi_controller = controller.WifiManager()
-        result = wifi_controller.addWifi(venue_id, venue_name, ll, ssid, has_password, password)
+        result = wifi_controller.addWifi(venue_id, ssid, has_password, password)
 
         if result is True:
             sendResponse(self, None)
