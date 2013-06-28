@@ -2,6 +2,7 @@ from google.appengine.ext import ndb
 import controller
 import webapp2
 import json
+import logging
 
 
 def sendResponse(self, data, error=None):
@@ -18,21 +19,14 @@ def sendResponse(self, data, error=None):
 class AccessPointsRequest(webapp2.RequestHandler):
 
     def get(self):
+        limit_param = self.request.get('limit')
         ll_param = self.request.get('ll')
-        ll_split = ll_param.split(',')
-
-        if len(ll_split) != 2:
-            sendResponse(self, None, 'latitude or longitude param missing')
-            return
-
-        latitude = ll_split[0]
-        longitude = ll_split[1]
 
         search_controller = controller.SearchManager()
-        near_locations = search_controller.findNearVenues(latitude, longitude)
+        near_locations = search_controller.findNearVenues(ll_param, limit_param)
+
         sendResponse(self, near_locations)
         return
-        #near_wifis = search_controller.findWifiByLocations(near_locations)
 
         if len(near_wifis) == 0:
             sendResponse(self, None, 'no access points found')
@@ -44,17 +38,16 @@ class AccessPointAdd(webapp2.RequestHandler):
 
     def post(self):
 
+        logging.info(" ____Body____: " + self.request.body)
+
         data = json.loads(self.request.body)
         venue_id = data['venue_id']
-        venue_name = data['venue_name']
-        latitude = data['latitude']
-        longitude = data['longitude']
         has_password = data['has_password']
         password = data['password']
         ssid = data['ssid']
 
-        wifi_controller = controller.Wifi()
-        result = wifi_controller.addWifi(venue_id, venue_name, latitude, longitude, ssid, has_password, password)
+        wifi_controller = controller.WifiManager()
+        result = wifi_controller.addWifi(venue_id, ssid, has_password, password)
 
         if result is True:
             sendResponse(self, None)
