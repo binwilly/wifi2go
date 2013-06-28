@@ -27,6 +27,8 @@
 		39E63CB1176269CE0097346A /* MockWiFi2GoService.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E63CB0176269CE0097346A /* MockWiFi2GoService.m */; };
 		39E63CB617626B340097346A /* WiFi2GoServiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E63CB517626B340097346A /* WiFi2GoServiceFactory.m */; };
 		3D3EF678FA0F4D60A41F6EDE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE37789F61940C7A17729E1 /* libPods.a */; };
+		3F210691177DE52D00CE5C4A /* wifi2use1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F210690177DE52D00CE5C4A /* wifi2use1.png */; };
+		3F210693177DE52F00CE5C4A /* wifi2use1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F210692177DE52F00CE5C4A /* wifi2use1@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,8 @@
 		39E63CB417626B340097346A /* WiFi2GoServiceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WiFi2GoServiceFactory.h; sourceTree = "<group>"; };
 		39E63CB517626B340097346A /* WiFi2GoServiceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WiFi2GoServiceFactory.m; sourceTree = "<group>"; };
 		3CE37789F61940C7A17729E1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F210690177DE52D00CE5C4A /* wifi2use1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wifi2use1.png; sourceTree = "<group>"; };
+		3F210692177DE52F00CE5C4A /* wifi2use1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifi2use1@2x.png"; sourceTree = "<group>"; };
 		822B647B4AF04CB4BFECC60B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -93,6 +97,8 @@
 		3938BFB3175E642800F46EBA = {
 			isa = PBXGroup;
 			children = (
+				3F210692177DE52F00CE5C4A /* wifi2use1@2x.png */,
+				3F210690177DE52D00CE5C4A /* wifi2use1.png */,
 				3938BFC5175E642800F46EBA /* WiFi2Go-ios */,
 				3938BFBE175E642800F46EBA /* Frameworks */,
 				3938BFBD175E642800F46EBA /* Products */,
@@ -234,6 +240,8 @@
 				3938BFD4175E642800F46EBA /* Default@2x.png in Resources */,
 				3938BFD6175E642800F46EBA /* Default-568h@2x.png in Resources */,
 				39388A5317610794002CAA74 /* signal.png in Resources */,
+				3F210691177DE52D00CE5C4A /* wifi2use1.png in Resources */,
+				3F210693177DE52F00CE5C4A /* wifi2use1@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
