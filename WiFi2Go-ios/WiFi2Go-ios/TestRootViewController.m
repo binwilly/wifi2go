@@ -196,20 +196,22 @@ static NSArray *keys;
     
 }
 
+#define LOCATION_IS_VALID(A) (A.horizontalAccuracy >= 0)
+
 #pragma mark - CLLocationManager delegate
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     if ([locations count] == 0) {
         return;
     }
     
+    self.currentLocation = nil;
     for (CLLocation *location in locations) {
-        if (location.horizontalAccuracy < 100.0f) {
+        if (LOCATION_IS_VALID(location) && location.horizontalAccuracy < 100.0f) {
             self.currentLocation = location;
             break;
         }
     }
-    
-    
+    if (self.currentLocation == nil) { return; }
     
     [self.locationManager stopUpdatingLocation];
     self.locateMeButton.enabled = YES;
