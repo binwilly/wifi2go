@@ -26,6 +26,9 @@
 
 @end
 
+@interface WiFi2GoService ()
+@property(atomic, assign) BOOL serviceIsBusy;
+@end
 
 @implementation WiFi2GoService
 
@@ -39,13 +42,16 @@ static NSString *urlString;
 -(id)init {
     self = [super initWithBaseURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/api/1/", urlString]]];
     if (self) {
-        
+        self.serviceIsBusy = NO;
     }
     return self;
 }
 
 
 -(void)queryWiFiForLatitude:(double)latitude longitude:(double)longitude completionBlock:(WiFi2GoServiceWiFiQueryComplete)block {
+    if (self.serviceIsBusy) return;
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    self.serviceIsBusy = YES;
     NSURL *url = [NSURL URLWithString: [[self.baseURL absoluteString] stringByAppendingFormat:@"wifi?ll=%f,%f", latitude, longitude]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSLog(@"Target URL: %@", [request.URL absoluteString]);
@@ -62,10 +68,13 @@ static NSString *urlString;
                 [r addObject:[Venue venueWithDictionary:d]];
             }
         }
-        
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        self.serviceIsBusy = NO;
         dispatch_async(dispatch_get_main_queue(), ^{ block(r, error); });
         
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        self.serviceIsBusy = NO;
         dispatch_async(dispatch_get_main_queue(), ^{ block(nil, error); });
     }];
     [operation start];
